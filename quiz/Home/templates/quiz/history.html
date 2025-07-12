@@ -1,0 +1,58 @@
+{% extends 'pages/base.html' %}
+{% block start %}
+
+<div class="container mt-5">
+  <h2 class="mb-4">📜 Your Quiz History</h2>
+
+  <div class="card mb-4 p-3">
+    <h4>Summary</h4>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Total Attempts</th>
+          <th>Average Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in summary %}
+        <tr>
+          <td>{{ row.subject|title }}</td>
+          <td>{{ row.attempts }}</td>
+          <td>{{ row.avg_score|floatformat:2 }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="3">No quiz attempts yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card p-3">
+    <h4>All Attempts</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Subject</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for result in user_results %}
+        <tr>
+          <!-- <td>{{ result.created_at|date:"M d, Y H:i" }}</td> -->
+          <td>{{ result.timestamp|date:"M d, Y H:i" }}</td>
+
+          <td>{{ result.subject|title }}</td>
+          <td>{{ result.score }}/10</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="3">No quiz history available.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

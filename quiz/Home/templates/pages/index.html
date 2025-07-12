@@ -1,0 +1,57 @@
+{% extends 'pages/base.html' %}
+{% load static %} 
+
+{% block start %}
+
+<!-- Hero Section -->
+<section class="text-center py-5">
+    <div class="container">
+        <h1 class="display-5 fw-bold">Welcome to Quizora</h1>
+        <p class="lead text-muted">
+            Level up your learning with every Quizora.            
+        </p>
+        <a href="#quiz-section" class="btn btn-modern px-4 py-2 mt-3">Get Started</a>
+    </div>
+</section>
+
+<!-- Quiz Section -->
+<section class="container py-5" id="quiz-section">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Choose Your Quiz</h2>
+      <p class="text-muted">Test your knowledge in different programming languages</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Java Quiz -->
+      <div class="col-md-4">
+        <div class="card quiz-card h-100 shadow border-0 text-center p-4">
+          <i class="fab fa-java fa-3x text-primary mb-3"></i>
+          <h5 class="fw-semibold">Java Quiz</h5>
+          <p class="text-muted">Object-oriented programming, exceptions, threads & more.</p>
+          <a href="{% url 'rules_page' 'java' %}" class="btn btn-modern mt-2">Start Quiz</a>
+        </div>
+      </div>
+
+      <!-- Python Quiz -->
+      <div class="col-md-4">
+        <div class="card quiz-card h-100 shadow border-0 text-center p-4">
+          <i class="fab fa-python fa-3x text-warning mb-3"></i>
+          <h5 class="fw-semibold">Python Quiz</h5>
+          <p class="text-muted">Functions, loops, data types, AI basics & more.</p>
+          <a href="{% url 'rules_page' 'python' %}" class="btn btn-modern mt-2">Start Quiz</a>
+        </div>
+      </div>
+
+      <!-- C++ Quiz -->
+      <div class="col-md-4">
+        <div class="card quiz-card h-100 shadow border-0 text-center p-4">
+          <i class="fas fa-code fa-3x text-success mb-3"></i>
+          <h5 class="fw-semibold">C++ Quiz</h5>
+          <p class="text-muted">Pointers, classes, STL, memory management & more.</p>
+          <a href="{% url 'rules_page' 'cpp' %}" class="btn btn-modern mt-2">Start Quiz</a>
+        </div>
+      </div>
+    </div>
+</section>
+
+{% endblock %}

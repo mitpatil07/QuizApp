@@ -1,0 +1,64 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block start %}
+<style>
+  body {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    min-height: 100vh;
+  }
+
+  .login-card {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .login-card h2 {
+    font-weight: 700;
+    color: #343a40;
+  }
+
+  .form-control {
+    border-radius: 12px;
+  }
+
+  .btn-success {
+    border-radius: 12px;
+    padding: 10px;
+    font-weight: 600;
+  }
+
+  .icon {
+    font-size: 1.2rem;
+    margin-right: 10px;
+    color: #6a11cb;
+  }
+</style>
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+  <div class="login-card text-center">
+    <h2><i class="fas fa-sign-in-alt icon"></i>Login to Quizora</h2>
+    <p class="text-muted mb-4">Access your account to start quizzing</p>
+    
+    <form method="post">
+      {% csrf_token %}
+      <div class="mb-3 text-start">
+        <label class="form-label fw-semibold">Username</label>
+        <input type="text" name="username" class="form-control" placeholder="Enter username" required>
+      </div>
+
+      <div class="mb-4 text-start">
+        <label class="form-label fw-semibold">Password</label>
+        <input type="password" name="password" class="form-control" placeholder="Enter password" required>
+      </div>
+
+      <button type="submit" class="btn btn-success w-100">
+        <i class="fas fa-arrow-right-to-bracket me-1"></i> Login
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}
