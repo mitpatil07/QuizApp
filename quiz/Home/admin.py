@@ -1,6 +1,16 @@
 from django.contrib import admin
-from .models import *
+from import_export.admin import ImportExportModelAdmin
+from .models import JavaQuestion, CppQuestion, PythonQuestion
 
-admin.site.register(JavaQuestion)
-admin.site.register(CppQuestion) 
-admin.site.register(PythonQuestion)
+# Optional: Define separate resources if you want to customize fields
+@admin.register(JavaQuestion)
+class JavaQuestionAdmin(ImportExportModelAdmin):
+    pass
+
+@admin.register(CppQuestion)
+class CppQuestionAdmin(ImportExportModelAdmin):
+    pass
+
+@admin.register(PythonQuestion)
+class PythonQuestionAdmin(ImportExportModelAdmin):
+    pass
