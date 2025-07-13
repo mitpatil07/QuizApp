@@ -30,16 +30,21 @@ def register_view(request):
 # Login
 def login_view(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
+        username = request.POST['username'].strip()
+        password = request.POST['password'].strip()
+
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
             return redirect('index')
         else:
-            messages.error(request, "Invalid credentials")
-    return render(request, 'accounts/login.html')
+            messages.error(
+                request,
+                "❌ Invalid username or password Register below."
+            )
+            return redirect('login')  # Redirect to refresh form with message
 
+    return render(request, 'accounts/login.html')
 # Logout
 def logout_view(request):
     logout(request)

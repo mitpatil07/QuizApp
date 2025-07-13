@@ -10,4 +10,7 @@ urlpatterns = [
     path('quiz/<str:subject>/', quiz_view, name='quiz'),
     path('accounts/', include('accounts.urls')),
     path('history/', quiz_history, name='quiz_history'),
+    path('contact/', contact_view, name='contact'),
+    path('about/', about_view, name='about'),
+
 ]

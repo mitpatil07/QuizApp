@@ -1,0 +1,135 @@
+{% extends 'pages/base.html' %}
+{% block start %}
+
+<style>
+  .about-section {
+    padding: 60px 0;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+  }
+
+  .about-card {
+    background: #ffffff;
+    color: #333;
+    border-radius: 20px;
+    padding: 50px 40px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    max-width: 1400px;
+    margin: auto;
+  }
+
+  .about-title {
+    font-weight: 800;
+    color: #6a11cb;
+    font-size: 2.5rem;
+  }
+
+  .highlight {
+    color: #2575fc;
+    font-weight: 700;
+  }
+
+  .info-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 30px;
+  }
+
+  .info-box {
+    flex: 1 1 45%;
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 5px solid #2575fc;
+  }
+
+  .info-box h5 {
+    color: #6a11cb;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .tech-stack {
+    margin-top: 30px;
+  }
+
+  .tech-badge {
+    background: #e0e0e0;
+    color: #333;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    display: inline-block;
+  }
+
+  @media (max-width: 768px) {
+    .info-box {
+      flex: 1 1 100%;
+    }
+  }
+</style>
+
+<div class="about-section">
+  <div class="container">
+    <div class="about-card">
+      <h2 class="about-title text-center mb-4">About the <span class="highlight">Quizora Project</span></h2>
+
+      <p>
+        <strong>Quizora</strong> is an innovative web-based quiz platform designed to make learning interactive, smart, and effective. The project aims to enhance knowledge retention through engaging quizzes while tracking user performance in real time.
+      </p>
+
+      <div class="info-section">
+        <div class="info-box">
+          <h5>🎯 Project Objective</h5>
+          <p>To build a modern, student-friendly platform where users can practice quizzes in subjects like Java, C++, and Python with instant scoring and feedback.</p>
+        </div>
+        <div class="info-box">
+          <h5>🚀 Key Features</h5>
+          <ul class="mb-0">
+            <li>Subject-wise quizzes (Java, C++, Python)</li>
+            <li>Secure user login & results history</li>
+            <li>Randomized questions per session</li>
+            <li>Real-time score and progress display</li>
+            <li>Responsive UI for mobile & desktop</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tech-stack">
+        <h5 class="mt-4">🧠 Technologies Used</h5>
+        <span class="tech-badge">Python</span>
+        <span class="tech-badge">Django</span>
+        <span class="tech-badge">Bootstrap 5</span>
+        <span class="tech-badge">HTML5</span>
+        <span class="tech-badge">CSS3</span>
+        <span class="tech-badge">JavaScript</span>
+        <span class="tech-badge">SQLite</span>
+      </div>
+
+      <div class="info-box mt-4">
+        <h5>🔐 Security & Performance</h5>
+        <p>
+          The app includes secure authentication using Django’s built-in system. Quizzes are session-controlled, and scores are stored for future reference. The UI ensures fast load time and optimized performance.
+        </p>
+      </div>
+
+      <div class="info-box mt-3">
+        <h5>📌 Future Scope</h5>
+        <ul class="mb-0">
+          <li>Admin dashboard for quiz management</li>
+          <li>More subjects and difficulty levels</li>
+          <li>Leaderboard and ranking system</li>
+          <li>Gamification with badges and achievements</li>
+        </ul>
+      </div>
+
+      <p class="text-center mt-4">
+        <strong class="highlight">Quizora</strong> – Your companion for smarter learning and better retention.
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

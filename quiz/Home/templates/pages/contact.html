@@ -1,0 +1,123 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block start %}
+
+<style>
+  .contact-section {
+    padding: 70px 0;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+  }
+
+  .contact-intro {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .contact-intro h2 {
+    font-size: 2.7rem;
+    font-weight: 800;
+  }
+
+  .contact-intro p {
+    font-size: 1.1rem;
+    color: #e2e2e2;
+    margin-top: 10px;
+  }
+
+  .contact-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    color: #333;
+    transition: all 0.3s ease;
+  }
+
+  .contact-card:hover {
+    transform: scale(1.01);
+  }
+
+  .form-control {
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .form-label {
+    font-weight: 600;
+    color: #444;
+  }
+
+  .btn-submit {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .btn-submit:hover {
+    background: linear-gradient(to right, #2575fc, #6a11cb);
+    transform: scale(1.03);
+  }
+
+  .icon-header i {
+    font-size: 2.2rem;
+    color: #2575fc;
+  }
+</style>
+
+<div class="contact-section">
+  <div class="container">
+
+    <!-- INFO HEADER -->
+    <div class="contact-intro">
+      <h2><i class="fas fa-headset me-2"></i>Contact <span class="text-warning">Quizora Team</span></h2>
+      <p>
+        Have a question, suggestion, or encountered a bug? Let us know! We value your feedback and are always working to make Quizora better for you.
+        Our team will get back to you within 24–48 hours.
+      </p>
+    </div>
+
+    <!-- FORM -->
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="contact-card">
+          <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+              <label class="form-label">Your Name</label>
+              <input type="text" name="name" class="form-control" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Email Address</label>
+              <input type="email" name="email" class="form-control" placeholder="e.g. name@example.com" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Message</label>
+              <textarea name="message" class="form-control" rows="5" placeholder="Write your message here..." required></textarea>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-submit">
+                <i class="fas fa-paper-plane me-2"></i> Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
