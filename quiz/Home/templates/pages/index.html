@@ -1,57 +1,213 @@
 {% extends 'pages/base.html' %}
-{% load static %} 
+{% load static %}
 
 {% block start %}
+<style>
+  /* Hero Styling */
+  .hero-section {
+    background: linear-gradient(145deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 120px 0 90px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 250px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: 0;
+  }
+
+  .hero-section h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    z-index: 1;
+    position: relative;
+  }
+
+  .hero-section p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    z-index: 1;
+    position: relative;
+  }
+
+  .btn-glow {
+    background: linear-gradient(to right, #ff8a00, #e52e71);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    padding: 12px 30px;
+    font-weight: 600;
+    margin-top: 25px;
+    box-shadow: 0 5px 20px rgba(229, 46, 113, 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .btn-glow:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+
+  /* Quiz Card Styling */
+  .quiz-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    transition: 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .quiz-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  }
+
+  .quiz-card i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #2575fc;
+  }
+
+  .quiz-section h2 {
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  /* Why Quizora Section */
+  .why-section {
+    background: #f8f9fa;
+    padding: 80px 0;
+  }
+
+  .why-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    text-align: center;
+    transition: 0.3s ease;
+  }
+
+  .why-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .why-card i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #6a11cb;
+  }
+
+  @media (max-width: 768px) {
+    .hero-section h1 {
+      font-size: 2.3rem;
+    }
+
+    .quiz-card,
+    .why-card {
+      padding: 20px;
+    }
+  }
+</style>
 
 <!-- Hero Section -->
-<section class="text-center py-5">
-    <div class="container">
-        <h1 class="display-5 fw-bold">Welcome to Quizora</h1>
-        <p class="lead text-muted">
-            Level up your learning with every Quizora.            
-        </p>
-        <a href="#quiz-section" class="btn btn-modern px-4 py-2 mt-3">Get Started</a>
-    </div>
+<section class="hero-section">
+  <div class="container position-relative z-1">
+    <h1>🚀 Welcome to <span class="text-warning">Quizora</span></h1>
+    <p class="lead">Master Programming with Interactive Quizzes</p>
+    <a href="#quiz-section" class="btn btn-glow">Start Learning</a>
+  </div>
 </section>
 
 <!-- Quiz Section -->
-<section class="container py-5" id="quiz-section">
+<section class="container py-5 quiz-section" id="quiz-section">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold">🧠 Choose Your Quiz</h2>
+    <p class="text-muted">Sharpen your skills in your favorite language</p>
+  </div>
+
+  <div class="row g-4">
+    <!-- Java Quiz -->
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+      <div class="quiz-card">
+        <i class="fab fa-java"></i>
+        <h5 class="fw-semibold">Java Quiz</h5>
+        <p class="text-muted">Test your Java fundamentals, OOP, threads & more.</p>
+        <a href="{% url 'rules_page' 'java' %}" class="btn btn-glow mt-2 w-100">Start Java Quiz</a>
+      </div>
+    </div>
+
+    <!-- Python Quiz -->
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+      <div class="quiz-card">
+        <i class="fab fa-python text-warning"></i>
+        <h5 class="fw-semibold">Python Quiz</h5>
+        <p class="text-muted">From basics to AI concepts in Python.</p>
+        <a href="{% url 'rules_page' 'python' %}" class="btn btn-glow mt-2 w-100">Start Python Quiz</a>
+      </div>
+    </div>
+
+    <!-- C++ Quiz -->
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+      <div class="quiz-card">
+        <i class="fas fa-code text-success"></i>
+        <h5 class="fw-semibold">C++ Quiz</h5>
+        <p class="text-muted">Pointers, STL, memory, and deep OOP knowledge.</p>
+        <a href="{% url 'rules_page' 'cpp' %}" class="btn btn-glow mt-2 w-100">Start C++ Quiz</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Quizora Section -->
+<section class="why-section" id="why-quizora">
+  <div class="container">
     <div class="text-center mb-5">
-      <h2 class="fw-bold">Choose Your Quiz</h2>
-      <p class="text-muted">Test your knowledge in different programming languages</p>
+      <h2 class="fw-bold">🌟 Why Choose Quizora?</h2>
+      <p class="text-muted">Designed to make your learning smarter, faster and more fun</p>
     </div>
 
     <div class="row g-4">
-      <!-- Java Quiz -->
-      <div class="col-md-4">
-        <div class="card quiz-card h-100 shadow border-0 text-center p-4">
-          <i class="fab fa-java fa-3x text-primary mb-3"></i>
-          <h5 class="fw-semibold">Java Quiz</h5>
-          <p class="text-muted">Object-oriented programming, exceptions, threads & more.</p>
-          <a href="{% url 'rules_page' 'java' %}" class="btn btn-modern mt-2">Start Quiz</a>
+      <div class="col-md-4" data-aos="fade-right">
+        <div class="why-card">
+          <i class="bi bi-lightning-charge-fill"></i>
+          <h5 class="fw-bold">Instant Feedback</h5>
+          <p class="text-muted">Get your score immediately and understand where you went wrong.</p>
         </div>
       </div>
 
-      <!-- Python Quiz -->
-      <div class="col-md-4">
-        <div class="card quiz-card h-100 shadow border-0 text-center p-4">
-          <i class="fab fa-python fa-3x text-warning mb-3"></i>
-          <h5 class="fw-semibold">Python Quiz</h5>
-          <p class="text-muted">Functions, loops, data types, AI basics & more.</p>
-          <a href="{% url 'rules_page' 'python' %}" class="btn btn-modern mt-2">Start Quiz</a>
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="why-card">
+          <i class="bi bi-graph-up-arrow"></i>
+          <h5 class="fw-bold">Progress Tracking</h5>
+          <p class="text-muted">Monitor your improvement over time and stay motivated.</p>
         </div>
       </div>
 
-      <!-- C++ Quiz -->
-      <div class="col-md-4">
-        <div class="card quiz-card h-100 shadow border-0 text-center p-4">
-          <i class="fas fa-code fa-3x text-success mb-3"></i>
-          <h5 class="fw-semibold">C++ Quiz</h5>
-          <p class="text-muted">Pointers, classes, STL, memory management & more.</p>
-          <a href="{% url 'rules_page' 'cpp' %}" class="btn btn-modern mt-2">Start Quiz</a>
+      <div class="col-md-4" data-aos="fade-left">
+        <div class="why-card">
+          <i class="bi bi-phone-fill"></i>
+          <h5 class="fw-bold">Mobile Optimized</h5>
+          <p class="text-muted">Fully responsive interface for mobile-first learning anytime, anywhere.</p>
         </div>
       </div>
     </div>
+  </div>
 </section>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
 
 {% endblock %}
