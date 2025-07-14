@@ -6,6 +6,8 @@
   body {
     background: linear-gradient(120deg, #89f7fe, #66a6ff);
     font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
   }
 
   .register-card {
@@ -13,6 +15,7 @@
     background: #ffffff;
     border-radius: 30px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
   }
 
   .form-floating input:focus {
@@ -40,10 +43,31 @@
       opacity: 1;
     }
   }
+
+  /* Responsive tweaks */
+  @media (max-width: 576px) {
+    .register-card {
+      padding: 2rem 1.5rem !important;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .form-floating label {
+      font-size: 0.9rem;
+    }
+
+    .btn {
+      font-size: 1rem;
+    }
+  }
 </style>
 
 <div class="container d-flex justify-content-center align-items-center mt-5" style="min-height: 85vh;">
-  <div class="card register-card p-5" style="max-width: 500px; width: 100%;">
+  <div class="card register-card p-5 px-md-5 px-3" style="max-width: 500px; width: 100%;">
     <h2 class="text-center mb-4 text-primary">📝 Create Your Account</h2>
 
     {% if messages %}

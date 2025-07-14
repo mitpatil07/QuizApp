@@ -1,2 +1,20 @@
-/db.sqlite3
+# Byte-compiled / cache files
+*.pyc
+__pycache__/
+
+# Environment files
+.env
 /env
+/myenv
+/venv
+
+# Database
+db.sqlite3
+
+# Static and media files (optional if generated)
+staticfiles/
+media/
+
+# IDE/editor-specific files (optional)
+.vscode/
+*.swp
